@@ -28,5 +28,9 @@ namespace phase2 {
   extern int g_thread_multi;
 }
 
+namespace phase3 {
+  extern int g_thread_div;
+}
+
 
 #endif /* INCLUDE_CHIA_SETTINGS_H_ */

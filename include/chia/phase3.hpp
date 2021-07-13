@@ -479,7 +479,7 @@ void compute(	phase2::output_t& input, output_t& out,
 	const auto total_begin = get_wall_time_micros();
 	
 	const std::string prefix_2 = tmp_dir_2 + plot_name + ".";
-	
+
 	out.params = input.params;
 	out.plot_file_name = tmp_dir + plot_name + ".plot.tmp";
 	
@@ -501,7 +501,7 @@ void compute(	phase2::output_t& input, output_t& out,
 			63, log_num_buckets, prefix_2 + "p3s1.t2");
 	
 	compute_stage1<phase2::entry_1, phase2::entry_x, DiskSortNP, phase2::DiskSortT>(
-			1, num_threads, nullptr, input.sort[1].get(), R_sort_lp.get(), &L_table_1, input.bitfield_1.get());
+			1, std::max(num_threads/g_thread_div, 1), nullptr, input.sort[1].get(), R_sort_lp.get(), &L_table_1, input.bitfield_1.get());
 	
 	input.bitfield_1 = nullptr;
 	remove(input.table_1.file_name);
@@ -510,7 +510,7 @@ void compute(	phase2::output_t& input, output_t& out,
 			32, log_num_buckets, prefix_2 + "p3s2.t2");
 	
 	num_written_final += compute_stage2(
-			1, num_threads, R_sort_lp.get(), L_sort_np.get(),
+			1, std::max(num_threads/g_thread_div, 1), R_sort_lp.get(), L_sort_np.get(),
 			plot_file, final_pointers[1], &final_pointers[2]);
 	
 	for(int L_index = 2; L_index < 6; ++L_index)

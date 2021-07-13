@@ -37,6 +37,7 @@ Usage:
   -f, --farmerkey arg  Farmer Public Key (48 bytes)
   -G, --tmptoggle      Alternate tmpdir/tmpdir2 (default = false)
   -K, --rmulti2 arg    Thread multiplier for P2 (default = 1)
+  -D, --rdiv3 arg      Thread divider for P3 (default = 1)
       --help           Print help
 ```
 

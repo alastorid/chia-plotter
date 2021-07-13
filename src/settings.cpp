@@ -14,3 +14,7 @@ size_t g_write_chunk_size = 4096;
 namespace phase2 {
   int g_thread_multi = 1;
 }
+
+namespace phase3 {
+  int g_thread_div = 1;
+}
