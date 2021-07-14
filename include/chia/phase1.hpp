@@ -463,7 +463,7 @@ void compute(	const input_t& input, output_t& out,
 	const std::string prefix_2 = tmp_dir_2 + plot_name + ".p1.";
 	
 	DiskSort1 sort_1(32 + kExtraBits, log_num_buckets, prefix_2 + "t1");
-	compute_f1(input.id.data(), num_threads, &sort_1);
+	compute_f1(input.id.data(), num_threads*2, &sort_1);
 	
 	DiskTable<tmp_entry_1> tmp_1(prefix + "table1.tmp");
 	DiskSort2 sort_2(32 + kExtraBits, log_num_buckets, prefix_2 + "t2");
